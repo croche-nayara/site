@@ -135,11 +135,6 @@
             width: 100%;
             height: 280px;
             object-fit: cover;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
         }
 
         .product-info {
@@ -227,11 +222,6 @@
             object-fit: cover;
             border-radius: 15px;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
         }
 
         .modal-title {
@@ -319,21 +309,8 @@
             <h2 class="section-title">✨ Nossos Produtos</h2>
             <div class="products-grid" id="productsGrid">
                 <!-- Produto 1 -->
-                <div class="product-card" onclick="openModal('Bolsa de Crochê', '👜', 'Bolsa artesanal em crochê, perfeita para o dia a dia!')">
-                    <div class="product-image">👜</div>
-                    <div class="product-info">
-                        <div class="product-name">Bolsa de Crochê</div>
-                        <div class="product-description">Bolsa artesanal em crochê</div>
-                        <button class="order-btn">
-                            <span>💬</span>
-                            <span>Fazer Encomenda</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Produto 2 -->
-                <div class="product-card" onclick="openModal('Toalha de Mesa', '🏠', 'Linda toalha de mesa em crochê para decorar sua casa!')">
-                    <div class="product-image">🏠</div>
+                <div class="product-card" onclick="openModal('Toalha de Mesa', 'images/toalha-mesa.jpg', 'Linda toalha de mesa em crochê para decorar sua casa!')">
+                    <img src="images/toalha-mesa.jpg" class="product-image" alt="Toalha de Mesa" onerror="this.style.fontSize='80px'; this.innerHTML='🏠';">
                     <div class="product-info">
                         <div class="product-name">Toalha de Mesa</div>
                         <div class="product-description">Decoração para sua casa</div>
@@ -344,9 +321,9 @@
                     </div>
                 </div>
 
-                <!-- Produto 3 -->
-                <div class="product-card" onclick="openModal('Tapete de Crochê', '⭕', 'Tapete em crochê, várias cores disponíveis!')">
-                    <div class="product-image">⭕</div>
+                <!-- Produto 2 -->
+                <div class="product-card" onclick="openModal('Tapete de Crochê', 'images/tapete.jpg', 'Tapete em crochê, várias cores disponíveis!')">
+                    <img src="images/tapete.jpg" class="product-image" alt="Tapete de Crochê" onerror="this.style.fontSize='80px'; this.innerHTML='⭕';">
                     <div class="product-info">
                         <div class="product-name">Tapete de Crochê</div>
                         <div class="product-description">Várias cores disponíveis</div>
@@ -357,9 +334,9 @@
                     </div>
                 </div>
 
-                <!-- Produto 4 -->
-                <div class="product-card" onclick="openModal('Amigurumi', '🧸', 'Bonecos fofos em crochê, perfeitos para presente!')">
-                    <div class="product-image">🧸</div>
+                <!-- Produto 3 -->
+                <div class="product-card" onclick="openModal('Amigurumi', 'images/amigurumi.jpg', 'Bonecos fofos em crochê, perfeitos para presente!')">
+                    <img src="images/amigurumi.jpg" class="product-image" alt="Amigurumi" onerror="this.style.fontSize='80px'; this.innerHTML='🧸';">
                     <div class="product-info">
                         <div class="product-name">Amigurumi</div>
                         <div class="product-description">Bonecos em crochê</div>
@@ -370,9 +347,9 @@
                     </div>
                 </div>
 
-                <!-- Produto 5 -->
-                <div class="product-card" onclick="openModal('Sousplat', '🍽️', 'Sousplat elegante para decorar sua mesa!')">
-                    <div class="product-image">🍽️</div>
+                <!-- Produto 4 -->
+                <div class="product-card" onclick="openModal('Sousplat', 'images/sousplat.jpg', 'Sousplat elegante para decorar sua mesa!')">
+                    <img src="images/sousplat.jpg" class="product-image" alt="Sousplat" onerror="this.style.fontSize='80px'; this.innerHTML='🍽️';">
                     <div class="product-info">
                         <div class="product-name">Sousplat</div>
                         <div class="product-description">Decoração de mesa</div>
@@ -383,9 +360,9 @@
                     </div>
                 </div>
 
-                <!-- Produto 6 -->
-                <div class="product-card" onclick="openModal('Caminho de Mesa', '✨', 'Lindo caminho de mesa artesanal!')">
-                    <div class="product-image">✨</div>
+                <!-- Produto 5 -->
+                <div class="product-card" onclick="openModal('Caminho de Mesa', 'images/caminho-mesa.jpg', 'Lindo caminho de mesa artesanal!')">
+                    <img src="images/caminho-mesa.jpg" class="product-image" alt="Caminho de Mesa" onerror="this.style.fontSize='80px'; this.innerHTML='✨';">
                     <div class="product-info">
                         <div class="product-name">Caminho de Mesa</div>
                         <div class="product-description">Peça artesanal elegante</div>
@@ -403,7 +380,7 @@
     <div class="modal" id="orderModal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal()">×</button>
-            <div class="modal-image" id="modalImage">🧶</div>
+            <img src="" alt="Produto" class="modal-image" id="modalImage">
             <h3 class="modal-title" id="modalTitle">Produto</h3>
             <textarea id="orderMessage" placeholder="Descreva os detalhes do seu pedido:&#10;- Cor desejada&#10;- Tamanho&#10;- Quantidade&#10;- Outras observações"></textarea>
             <button class="whatsapp-btn" onclick="sendWhatsApp()">
@@ -416,13 +393,471 @@
     <script>
         let currentProduct = {
             name: '',
-            emoji: '',
+            image: '',
             description: ''
         };
 
-        function openModal(productName, emoji, description) {
-            currentProduct = { name: productName, emoji: emoji, description: description };
-            document.getElementById('modalImage').textContent = emoji;
+        function openModal(productName, productImage, description) {
+            currentProduct = { name: productName, image: productImage, description: description };
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = productImage;
+            modalImage.alt = productName;
+            modalImage.onerror = function() {
+                this.style.fontSize = '100px';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+                this.innerHTML = '🧶';
+            };
+            document.getElementById('modalTitle').textContent = productName;
+            document.getElementById('orderModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.getElementById('orderMessage').value = '';
+        }
+
+        function sendWhatsApp() {
+            const message = document.getElementById('orderMessage').value.trim();
+            
+            let whatsappText = `Olá! Vi seu Instagram @nayar4_croche e gostaria de fazer uma encomenda:\n\n`;
+            whatsappText += `📦 Produto: ${currentProduct.name}\n`;
+            whatsappText += `${currentProduct.description}\n\n`;
+            
+            if (message) {
+                whatsappText += `💬 Detalhes do pedido:\n${message}`;
+            } else {
+                whatsappText += `Gostaria de mais informações sobre este produto!`;
+            }
+
+            const phoneNumber = '5598992135821';
+            const encodedMessage = encodeURIComponent(whatsappText);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+            closeModal();
+        }
+
+        // Fechar modal clicando fora
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayara Crochê - Catálogo de Produtos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #E1306C 0%, #FD1D1D 50%, #F77737 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #E1306C;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .instagram-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .info-banner {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-banner p {
+            color: #E65100;
+            font-weight: 500;
+        }
+
+        .products-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .order-btn {
+            width: 100%;
+            padding: 12px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .order-btn:hover {
+            background: #20BA5A;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 15px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #E1306C;
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            padding: 15px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20BA5A;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .product-image {
+                height: 180px;
+                font-size: 50px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="images/logo.jpg" 
+                     alt="Nayara Crochê" 
+                     class="logo-img"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='🧶';">
+            </div>
+            <h1>@nayar4_croche</h1>
+            <p class="subtitle">Peças artesanais em crochê feitas com amor ❤️</p>
+            <a href="https://instagram.com/nayar4_croche" target="_blank" class="instagram-btn">
+                <span>📸</span>
+                <span>Ver perfil no Instagram</span>
+            </a>
+            <div class="info-banner">
+                <p>👇 Escolha o produto e faça sua encomenda pelo WhatsApp!</p>
+            </div>
+        </div>
+
+        <div class="products-section">
+            <h2 class="section-title">✨ Nossos Produtos</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Produto 1 -->
+                <div class="product-card" onclick="openModal('Toalha de Mesa', 'images/toalha-mesa.jpg', 'Linda toalha de mesa em crochê para decorar sua casa!')">
+                    <img src="images/toalha-mesa.jpg" class="product-image" alt="Toalha de Mesa" onerror="this.style.fontSize='80px'; this.innerHTML='🏠';">
+                    <div class="product-info">
+                        <div class="product-name">Toalha de Mesa</div>
+                        <div class="product-description">Decoração para sua casa</div>
+                        <button class="order-btn">
+                            <span>💬</span>
+                            <span>Fazer Encomenda</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="product-card" onclick="openModal('Tapete de Crochê', 'images/tapete.jpg', 'Tapete em crochê, várias cores disponíveis!')">
+                    <img src="images/tapete.jpg" class="product-image" alt="Tapete de Crochê" onerror="this.style.fontSize='80px'; this.innerHTML='⭕';">
+                    <div class="product-info">
+                        <div class="product-name">Tapete de Crochê</div>
+                        <div class="product-description">Várias cores disponíveis</div>
+                        <button class="order-btn">
+                            <span>💬</span>
+                            <span>Fazer Encomenda</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="product-card" onclick="openModal('Amigurumi', 'images/amigurumi.jpg', 'Bonecos fofos em crochê, perfeitos para presente!')">
+                    <img src="images/amigurumi.jpg" class="product-image" alt="Amigurumi" onerror="this.style.fontSize='80px'; this.innerHTML='🧸';">
+                    <div class="product-info">
+                        <div class="product-name">Amigurumi</div>
+                        <div class="product-description">Bonecos em crochê</div>
+                        <button class="order-btn">
+                            <span>💬</span>
+                            <span>Fazer Encomenda</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="product-card" onclick="openModal('Sousplat', 'images/sousplat.jpg', 'Sousplat elegante para decorar sua mesa!')">
+                    <img src="images/sousplat.jpg" class="product-image" alt="Sousplat" onerror="this.style.fontSize='80px'; this.innerHTML='🍽️';">
+                    <div class="product-info">
+                        <div class="product-name">Sousplat</div>
+                        <div class="product-description">Decoração de mesa</div>
+                        <button class="order-btn">
+                            <span>💬</span>
+                            <span>Fazer Encomenda</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto 5 -->
+                <div class="product-card" onclick="openModal('Caminho de Mesa', 'images/caminho-mesa.jpg', 'Lindo caminho de mesa artesanal!')">
+                    <img src="images/caminho-mesa.jpg" class="product-image" alt="Caminho de Mesa" onerror="this.style.fontSize='80px'; this.innerHTML='✨';">
+                    <div class="product-info">
+                        <div class="product-name">Caminho de Mesa</div>
+                        <div class="product-description">Peça artesanal elegante</div>
+                        <button class="order-btn">
+                            <span>💬</span>
+                            <span>Fazer Encomenda</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <img src="" alt="Produto" class="modal-image" id="modalImage">
+            <h3 class="modal-title" id="modalTitle">Produto</h3>
+            <textarea id="orderMessage" placeholder="Descreva os detalhes do seu pedido:&#10;- Cor desejada&#10;- Tamanho&#10;- Quantidade&#10;- Outras observações"></textarea>
+            <button class="whatsapp-btn" onclick="sendWhatsApp()">
+                <span>💬</span>
+                <span>Enviar pelo WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentProduct = {
+            name: '',
+            image: '',
+            description: ''
+        };
+
+        function openModal(productName, productImage, description) {
+            currentProduct = { name: productName, image: productImage, description: description };
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = productImage;
+            modalImage.alt = productName;
+            modalImage.onerror = function() {
+                this.style.fontSize = '100px';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+                this.innerHTML = '🧶';
+            };
             document.getElementById('modalTitle').textContent = productName;
             document.getElementById('orderModal').classList.add('active');
         }
